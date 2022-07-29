@@ -5,8 +5,12 @@ import EventDetailView from '@/views/EventDetailView.vue'
 const routes = [
   {
     path: '/',
-    name: 'EventList',
-    component: EventListView
+    name: 'EventListView',
+    component: EventListView,
+    props: (route) => ({
+      page: parseInt(route.query.page) || 1,
+      perPage: parseInt(route.query.perPage) || 1
+    })
   },
   {
     path: '/about',
